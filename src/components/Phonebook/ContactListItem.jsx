@@ -1,11 +1,11 @@
-import { deleteContact } from '../../redux/contactsSlice';
+import { deleteContact } from '../../redux/thunks';
 import { useDispatch } from 'react-redux';
 
 const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const handleRemoveContact = id => {
-    dispatch(deleteContact({ id }));
+    dispatch(deleteContact(id));
   };
 
   return (

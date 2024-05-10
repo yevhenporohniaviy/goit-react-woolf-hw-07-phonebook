@@ -1,8 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
 import { getContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/thunks';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact({ ...data, id: nanoid() }));
+    dispatch(addContact(data));
   };
 
   const {
